@@ -20,14 +20,14 @@ export default {
     <input
       type="text"
       class="form-control"
-      placeholder="Nhập thông tin cần tìm"
+      placeholder="Enter the title or author"
       :value="modelValue"
       @input="updateModelValue"
       @keyup.enter="submit"
     />
     <div class="input-group-append">
       <button class="btn btn-outline-secondary" type="button" @click="submit">
-        <i class="fas fa-search"></i> Tìm kiếm
+        <i class="fas fa-search"></i> Search
       </button>
     </div>
   </div>

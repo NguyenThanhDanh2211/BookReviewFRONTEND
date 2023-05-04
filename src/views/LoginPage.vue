@@ -131,8 +131,8 @@ export default {
         const { accesstoken, username } = await response;
         window.localStorage.setItem("user", username);
         window.localStorage.setItem("accessToken", accesstoken);
-        // this.message = "Logged successfully";
-        // alert(this.message);
+        this.message = "Logged successfully";
+        alert(this.message);
         this.$router.push("/admin");
         // window.location.reload();
       } catch (error) {

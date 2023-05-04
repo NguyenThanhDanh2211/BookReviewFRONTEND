@@ -3,7 +3,7 @@
     <div class="col-md-8">
       <InputSearch v-model="searchText" />
 
-      <h4>
+      <h4 style="margin-top: 5px">
         Book
         <i class="fas fa-book"></i>
       </h4>
@@ -12,25 +12,25 @@
         :books="filteredBooks"
         v-model:activeIndex="activeIndex"
       />
-      <p v-else>Không có liên hệ nào.</p>
+      <p v-else>Book is unavailable</p>
       <div class="mt-3 row justify-content-around align-items-center">
         <button class="btn btn-sm btn-primary" @click="refreshList()">
-          <i class="fas fa-redo"></i> Làm mới
+          <i class="fas fa-redo"></i> Refresh
         </button>
         <button class="btn btn-sm btn-success" @click="goToAddBook">
-          <i class="fas fa-plus"></i> Thêm mới
+          <i class="fas fa-plus"></i> Add
         </button>
         <button class="btn btn-sm btn-danger" @click="removeAllBooks">
-          <i class="fas fa-trash"></i> Xóa tất cả
+          <i class="fas fa-trash"></i> Delete all
         </button>
       </div>
     </div>
 
     <div class="col-md-4" style="margin-top: 35px">
       <div v-if="activeBook">
-        <h4>
-          Chi tiết Liên hệ
-          <i class="fas fa-address-card"></i>
+        <h4 style="margin-top: 5px">
+          Detail
+          <i class="fa fa-circle-info"></i>
         </h4>
         <BookCard :book="activeBook" />
 
@@ -41,7 +41,7 @@
           }"
         >
           <span class="mt-2 badge badge-warning">
-            <i class="fas fa-edit"></i> Hiệu chỉnh</span
+            <i class="fas fa-edit"></i> Edit</span
           >
         </router-link>
       </div>
@@ -104,7 +104,7 @@ export default {
     },
 
     async removeAllBooks() {
-      if (confirm("may muon xoa het sach dung hong?")) {
+      if (confirm("Do you want delete all books")) {
         try {
           await BookService.deleteAll();
           this.refreshList();

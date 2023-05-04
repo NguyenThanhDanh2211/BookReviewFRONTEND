@@ -3,7 +3,7 @@
     <div class="col-lg-4 col-md-6 align-items-center justify-content-center">
       <Form @submit="handleSubmit" :validation-schema="bookFormSchema">
         <div class="form-group">
-          <label for="title">Tên sach</label>
+          <label for="title"><Title></Title></label>
           <Field
             name="title"
             type="text"
@@ -14,7 +14,7 @@
         </div>
 
         <div class="form-group">
-          <label for="author">Tac gia</label>
+          <label for="author">Author</label>
           <Field
             name="author"
             type="text"
@@ -24,7 +24,7 @@
           <ErrorMessage name="author" class="error-feedback" />
         </div>
         <div class="form-group">
-          <label for="genre">The loai</label>
+          <label for="genre">Genre</label>
           <Field
             name="genre"
             type="text"
@@ -44,7 +44,7 @@
           <ErrorMessage name="review" class="error-feedback" />
         </div>
         <div class="form-group">
-          <label for="rating">danh gia</label>
+          <label for="rating">Rating</label>
           <Field
             name="rating"
             type="number"
@@ -54,15 +54,18 @@
           <ErrorMessage name="rating" class="error-feedback" />
         </div>
         <div class="form-group">
-          <label for="image">Hinh anh</label>
-          <Field name="image" class="form-control" v-model="books.image" />
+          <label class="form-label" for="image pathURL">Image</label>
+          <input
+            id="pathURL"
+            name="image"
+            class="form-control"
+            v-model="books.image"
+          />
         </div>
         <div class="form-group">
           <button class="btn btn-primary">Save</button>
           <button class="btn btn-outline-secondary" style="margin-left: 20px">
-            <router-link :to="{ name: 'admin' }" @click="handleClick"
-              >Back
-            </router-link>
+            <router-link :to="{ name: 'admin' }">Back </router-link>
           </button>
         </div>
       </Form>
@@ -113,7 +116,7 @@ export default {
       try {
         const data = JSON.stringify(this.books);
         await bookService.createBook(data);
-        this.message = "Sach được tạo thành công.";
+        this.message = "Book created successfully";
       } catch (error) {
         console.log(error);
       }

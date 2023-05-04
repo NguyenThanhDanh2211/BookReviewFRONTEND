@@ -1,10 +1,10 @@
 <template>
   <div v-if="book" class="page">
-    <h4>Hiệu chỉnh Liên hệ</h4>
+    <h4>Edit review</h4>
     <BookForm
       :book="book"
-      @submit:book="updateContact"
-      @delete:book="deleteContact"
+      @submit:book="update_Book"
+      @delete:book="deleteBook"
     />
     <p>{{ message }}</p>
   </div>
@@ -12,7 +12,7 @@
 
 <script>
 import BookForm from "@/components/BookForm.vue";
-import ContactService from "@/services/book.service";
+import BookService from "@/services/book.service";
 
 export default {
   components: {
@@ -28,9 +28,9 @@ export default {
     };
   },
   methods: {
-    async getContact(id) {
+    async getBook(id) {
       try {
-        this.book = await ContactService.getBookById(id);
+        this.book = await BookService.getBookById(id);
       } catch (error) {
         console.log(error);
         // Chuyển sang trang NotFound đồng thời giữ cho URL không đổi
@@ -45,19 +45,19 @@ export default {
       }
     },
 
-    async updateContact(data) {
+    async update_Book(data) {
       try {
-        await ContactService.updateBook(this.book._id, data);
-        this.message = "Liên hệ được cập nhật thành công.";
+        await BookService.updateBook(this.book._id, data);
+        this.message = "Book updated successfully";
       } catch (error) {
         console.log(error);
       }
     },
 
-    async deleteContact() {
-      if (confirm("Bạn muốn xóa Liên hệ này?")) {
+    async deleteBook() {
+      if (confirm("Do you want delete this book?")) {
         try {
-          await ContactService.delete(this.book._id);
+          await BookService.delete(this.book._id);
           this.$router.push({ name: "admin" });
         } catch (error) {
           console.log(error);
@@ -66,7 +66,7 @@ export default {
     },
   },
   created() {
-    this.getContact(this.id);
+    this.getBook(this.id);
     this.message = "";
   },
 };

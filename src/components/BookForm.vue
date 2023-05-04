@@ -1,7 +1,7 @@
 <template>
   <Form @submit="handleSubmit" :validation-schema="bookFormSchema">
     <div class="form-group">
-      <label for="title">Tên sach</label>
+      <label for="title"><Title></Title></label>
       <Field
         name="title"
         type="text"
@@ -12,7 +12,7 @@
     </div>
 
     <div class="form-group">
-      <label for="author">Tac gia</label>
+      <label for="author">Author</label>
       <Field
         name="author"
         type="text"
@@ -22,7 +22,7 @@
       <ErrorMessage name="author" class="error-feedback" />
     </div>
     <div class="form-group">
-      <label for="genre">The loai</label>
+      <label for="genre">Genre</label>
       <Field
         name="genre"
         type="text"
@@ -42,7 +42,7 @@
       <ErrorMessage name="review" class="error-feedback" />
     </div>
     <div class="form-group">
-      <label for="rating">danh gia</label>
+      <label for="rating">Rating</label>
       <Field
         name="rating"
         type="number"
@@ -52,7 +52,7 @@
       <ErrorMessage name="rating" class="error-feedback" />
     </div>
     <div class="form-group">
-      <label for="image">Hinh anh</label>
+      <label for="image">Iamge</label>
       <Field
         name="image"
         type="text"
@@ -100,8 +100,6 @@ export default {
         .max(50, "Tên có nhiều nhất 50 ký tự."),
     });
     return {
-      // Chúng ta sẽ không muốn hiệu chỉnh props, nên tạo biến cục bộ
-      // bookLocal để liên kết với các input trên form
       bookLocal: this.book,
       bookFormSchema,
     };

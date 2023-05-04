@@ -2,7 +2,7 @@
   <div class="row container">
     <div class="col-md-7" style="margin-top: 35px">
       <div v-if="activeBook">
-        <h4>
+        <h4 style="margin-top: 10px">
           Tóm tắt nội dung sách
           <i class="fas fa-book"></i>
         </h4>
@@ -16,14 +16,12 @@
         >
         </router-link>
       </div>
-      <!-- <Carousel /> -->
     </div>
 
     <div class="col-md-5">
       <InputSearch v-model="searchText" />
-
       <h4>
-        Book
+        Những bài review sách tổng hợp
         <i class="fas fa-book"></i>
       </h4>
       <BookList
@@ -31,7 +29,6 @@
         :books="filteredBooks"
         v-model:activeIndex="activeIndex"
       />
-
       <div class="mt-3 row justify-content-around align-items-center">
         <button class="btn btn-sm btn-primary" @click="refreshList()">
           <i class="fas fa-redo"></i> Làm mới
@@ -105,5 +102,12 @@ export default {
 .page {
   text-align: left;
   max-width: 750px;
+}
+</style>
+
+<style>
+h4 {
+  background-color: aquamarine;
+  margin: 5px;
 }
 </style>

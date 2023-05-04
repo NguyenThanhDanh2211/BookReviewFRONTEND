@@ -9,32 +9,32 @@ export default {
 <template>
   <div>
     <div class="p-1">
-      <strong>Tên:</strong>
+      <strong>Title:</strong>
       {{ book.title }}
     </div>
 
     <div class="p-1">
-      <strong>tac gia:</strong>
+      <strong>Author:</strong>
       {{ book.author }}
     </div>
 
     <div class="p-1">
-      <strong>the loai:</strong>
+      <strong>Genre</strong>
       {{ book.genre }}
     </div>
 
-    <div class="p-1">
-      <strong>review:</strong>
+    <div class="p-1" style="text-align: justify">
+      <strong>Review:</strong>
       {{ book.review }}
     </div>
 
     <div class="p-1">
-      <strong>rating:</strong>
+      <strong>Rating:</strong>
       {{ book.rating }}
     </div>
 
     <div class="p-1">
-      <strong>image:</strong>
+      <strong>Image:</strong>
       {{ book.image }}
     </div>
   </div>

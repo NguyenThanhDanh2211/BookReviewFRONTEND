@@ -126,7 +126,7 @@ export default {
       try {
         const data = JSON.stringify(this.account);
         await userService.register(data);
-        // alert("User created successfully");
+        alert("User created successfully");
         this.$router.push("/login");
       } catch (error) {
         console.log(error);
