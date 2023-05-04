@@ -95,9 +95,21 @@ export default {
     const bookFormSchema = yup.object().shape({
       title: yup
         .string()
-        .required("Tên phải có giá trị.")
-        .min(2, "Tên phải ít nhất 2 ký tự.")
-        .max(50, "Tên có nhiều nhất 50 ký tự."),
+        .required("Title must has value")
+        .min(2, "Title's minlength is 2 character ")
+        .max(50, "Title's maxlength is 50 character"),
+      author: yup
+        .string()
+        .required("Author must has value")
+        .max(20, "Author's maxlength is 20 character"),
+      genre: yup.string().max(20, "Genre's maximum length is 20 characters"),
+      review: yup
+        .string()
+        .max(500, "Review's maximum length is 500 characters"),
+      rating: yup
+        .number()
+        .min(0, "Rating's minimum value is 0")
+        .max(5, "Rating's maximum value is 5"),
     });
     return {
       bookLocal: this.book,

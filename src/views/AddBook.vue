@@ -3,7 +3,7 @@
     <div class="col-lg-4 col-md-6 align-items-center justify-content-center">
       <Form @submit="handleSubmit" :validation-schema="bookFormSchema">
         <div class="form-group">
-          <label for="title"><Title></Title></label>
+          <label for="title">Title</label>
           <Field
             name="title"
             type="text"
@@ -89,9 +89,9 @@ export default {
     const bookFormSchema = yup.object().shape({
       title: yup
         .string()
-        .required("Username must has value")
-        .min(2, "Username's minlength is 2 character ")
-        .max(50, "Username's maxlength is 50 character"),
+        .required("Title must has value")
+        .min(2, "Title's minlength is 2 character ")
+        .max(50, "Title's maxlength is 50 character"),
       author: yup
         .string()
         .required("Author must has value")
